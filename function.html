@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var generateRandomInsult = function (){
+            var randomBodyParts = ["глаз", "нос", "череп"];
+            var randomAdjectives = ["вонючая", "унылая", "дурацкая"];
+            var randomWords = ["муха", "выдра", "дубина", "мартышка", "крыса"];
+            var pickRandomWord = function (words) {
+                return words[Math.floor(Math.random() * words.length)];
+            }
+            var randomString = "У тебя " + pickRandomWord(randomBodyParts) + " словно " + pickRandomWord(randomAdjectives) + " " + pickRandomWord(randomWords);
+            return randomString;
+        }
+
+        function add (a, b) {
+            return a + b;
+        }
+        function multiply (a,b) {
+            return a * b;
+        }
+        add (multiply(36325, 9824), 777);
+    </script>
+</body>
+</html>
