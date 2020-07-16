@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="changeH1">Learn about DOM</h1>
+    <ul id="addChild">
+        <li>List1</li>
+        <li>List2</li>
+        <li>List3</li>
+        <li>List4</li>
+    </ul>
+    <div>Lorem ipsum dolor, sit amet 
+        consectetur adipisicing elit. Alias autem dolores quae 
+        necessitatibus voluptates laboriosam rem reiciendis natus 
+        esse quam accusamus qui hic neque minus quasi quod, ducimus 
+        accusantium architecto.
+    </div>
+    <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Deleniti natus autem architecto, aut quibusdam labore molestiae 
+        quis inventore, dicta dolores animi! 
+        Modi culpa non et aliquid, voluptates quis? Veritatis, beatae!
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("h1").text("Мои друзья");
+        let friends = ["Andrew", "Lisa", "Nik"];
+        
+        for (i = 0; i <= friends.length - 1; i++) {
+            $("body").append("<p>" + friends[i] + " лучший </p>");
+            $("p").hide(0001);
+        }
+        $("p").fadeIn(3000);
+        
+        function light(sec){
+            for (i = 1; i <= 5; i++) {
+            $("h1").fadeOut(sec).delay(2000).fadeIn(sec);
+            sec += 1000;
+        }
+        }
+        light(1000);
+
+    </script>
+</body>
+</html>
