@@ -39,11 +39,19 @@
         
         function light(sec){
             for (i = 1; i <= 5; i++) {
-            $("h1").fadeOut(sec).delay(2000).fadeIn(sec);
+            $("h1").fadeOut(sec).fadeIn(sec);
             sec += 1000;
         }
         }
         light(1000);
+        $("div").fadeTo(3000,0.1);
+        var counter = 0;
+        function printMessege() {
+            console.log("Ты смотришь в консоль уже" + counter + "сек");
+            counter += 5;
+        }
+        var intervalId = setInterval(printMessege, 5000);
+        
 
     </script>
 </body>

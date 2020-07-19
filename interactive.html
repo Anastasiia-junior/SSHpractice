@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивное программирование</title>
+</head>
+<body>
+    <h1 id = "heading"> Hello, Worl</h1>
+    <div>
+        Example
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let moveLeft = 0;
+        let moveTop = 0;
+        
+        function moveHeading(){
+            if(moveLeft == 0 && moveTop == 0) {
+            $("h1").offset({
+                left: 200,
+                top: 0
+            });
+            moveLeft = 200;
+            moveTop = 0;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 200 && moveTop == 0) {
+                $("h1").offset({
+                left: 200,
+                top: 200
+            });
+            moveLeft = 200;
+            moveTop = 200;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 200 && moveTop == 200) {
+                $("h1").offset({
+                left: 0,
+                top: 200
+            });
+            moveLeft = 0;
+            moveTop = 200;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 0 && moveTop == 200) {
+                $("h1").offset({
+                left: 0,
+                top: 0
+            });
+            moveLeft = 0;
+            moveTop = 0;
+            console.log(moveLeft + " " + moveTop);
+            }
+
+        }
+        let intervalId = setInterval(moveHeading, 2000);
+        $("html").click(function (event){
+            clearInterval(intervalId);
+        });
+        
+        /*
+        //Используйте setInterval для анимации заголовка h1, 
+        //двигая его по квадрату, вдоль краев страницы. 
+        //Пусть он переместится на 200 пикселей вправо, 
+        //на 200 пикселей вниз, 200 пикселей влево, 200 пикселей 
+        //вверх, а затем начнет с начала. Подсказка: 
+        //нужно запоминать текущее направление (вправо, вниз, влево или вверх),
+        //чтобы знать, увеличивать или уменьшать для заголовка 
+        //отступы слева (left) и сверху (top). Кроме того, 
+        //при достижении угла квадрата нужно будет менять направление.
+        let moveLeft = 0;
+        let moveTop = 0;
+        function moveHeading(){
+            if(moveLeft == 0 && moveTop == 0) {
+            $("h1").offset({
+                left: 200,
+                top: 0
+            });
+            moveLeft = 200;
+            moveTop = 0;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 200 && moveTop == 0) {
+                $("h1").offset({
+                left: 200,
+                top: 200
+            });
+            moveLeft = 200;
+            moveTop = 200;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 200 && moveTop == 200) {
+                $("h1").offset({
+                left: 0,
+                top: 200
+            });
+            moveLeft = 0;
+            moveTop = 200;
+            console.log(moveLeft + " " + moveTop);
+            } else if(moveLeft == 0 && moveTop == 200) {
+                $("h1").offset({
+                left: 0,
+                top: 0
+            });
+            moveLeft = 0;
+            moveTop = 0;
+            console.log(moveLeft + " " + moveTop);
+            }
+
+        }
+        setInterval(moveHeading, 2000);
+        
+        //обработчик события на клик и на движение мыши
+        $("html").click(function (event) {
+            $("#heading").offset({
+                left: event.pageX,
+                top: event.pageY
+            });
+        });
+        $("html").mousemove(function (event) {
+            $("#heading").offset({
+                left: event.pageX,
+                top: event.pageY
+            });
+        });
+
+        //Обработчик события на клик мыши
+        function clickHandler (event) {
+            console.log("Click" + event.pageX + " " + event.pageY);
+        }
+        $("h1").click(clickHandler); 
+
+        //Смещение элемента влево или сверху
+        //функция setInterval для задания интервала вызова другой функции 
+        var leftOffset = 0;
+        function moveHeading() {
+            $("#heading").offset({ left: leftOffset});
+            leftOffset++;
+            if (leftOffset > 200) {
+                leftOffset = 0;
+            }
+        };
+        setInterval(moveHeading, 30);
+        //$("h1").offset({top: 100});
+        $("div").offset({left: 100});
+        */
+    </script>
+</body>
+</html>
