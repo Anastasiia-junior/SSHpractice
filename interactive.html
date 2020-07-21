@@ -12,6 +12,49 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        let leftOffset = 0;
+        function moveHeading() {
+            $("#heading").offset({ left: leftOffset});
+            leftOffset++;
+            if (leftOffset > 500) {
+                leftOffset = 0;
+            }
+        }
+        let i = 5;
+        function incrieseMove (a) {
+            let intervalId = setInterval(moveHeading, a); 
+            if(i > 0) {
+                $("#heading").text("у вас осталось" + i + "попыток");
+                //let intervalId = setInterval(moveHeading, a); //увеличивает скорость движения заголовка
+                i--;
+                console.log(i);
+            } else (i == 0) {
+                $("#heading").text("Вы выиграли");
+                $("#heading").click(clearInterval(intervalId));
+                return;
+            }
+        };
+        $("#heading").click(incrieseMove);
+
+
+
+        
+        
+        //clearInterval(intervalId)
+
+
+        /*
+        //Используйте setInterval для анимации заголовка h1, 
+        //двигая его по квадрату, вдоль краев страницы. 
+        //Пусть он переместится на 200 пикселей вправо, 
+        //на 200 пикселей вниз, 200 пикселей влево, 200 пикселей 
+        //вверх, а затем начнет с начала. Подсказка: 
+        //нужно запоминать текущее направление (вправо, вниз, влево или вверх),
+        //чтобы знать, увеличивать или уменьшать для заголовка 
+        //отступы слева (left) и сверху (top). Кроме того, 
+        //при достижении угла квадрата нужно будет менять направление.
+        let moveLeft = 0;
+        let moveTop = 0;
         let moveLeft = 0;
         let moveTop = 0;
         
@@ -55,56 +98,7 @@
         $("html").click(function (event){
             clearInterval(intervalId);
         });
-        
-        /*
-        //Используйте setInterval для анимации заголовка h1, 
-        //двигая его по квадрату, вдоль краев страницы. 
-        //Пусть он переместится на 200 пикселей вправо, 
-        //на 200 пикселей вниз, 200 пикселей влево, 200 пикселей 
-        //вверх, а затем начнет с начала. Подсказка: 
-        //нужно запоминать текущее направление (вправо, вниз, влево или вверх),
-        //чтобы знать, увеличивать или уменьшать для заголовка 
-        //отступы слева (left) и сверху (top). Кроме того, 
-        //при достижении угла квадрата нужно будет менять направление.
-        let moveLeft = 0;
-        let moveTop = 0;
-        function moveHeading(){
-            if(moveLeft == 0 && moveTop == 0) {
-            $("h1").offset({
-                left: 200,
-                top: 0
-            });
-            moveLeft = 200;
-            moveTop = 0;
-            console.log(moveLeft + " " + moveTop);
-            } else if(moveLeft == 200 && moveTop == 0) {
-                $("h1").offset({
-                left: 200,
-                top: 200
-            });
-            moveLeft = 200;
-            moveTop = 200;
-            console.log(moveLeft + " " + moveTop);
-            } else if(moveLeft == 200 && moveTop == 200) {
-                $("h1").offset({
-                left: 0,
-                top: 200
-            });
-            moveLeft = 0;
-            moveTop = 200;
-            console.log(moveLeft + " " + moveTop);
-            } else if(moveLeft == 0 && moveTop == 200) {
-                $("h1").offset({
-                left: 0,
-                top: 0
-            });
-            moveLeft = 0;
-            moveTop = 0;
-            console.log(moveLeft + " " + moveTop);
-            }
-
-        }
-        setInterval(moveHeading, 2000);
+        var leftOffset = 0;
         
         //обработчик события на клик и на движение мыши
         $("html").click(function (event) {
@@ -132,7 +126,7 @@
         function moveHeading() {
             $("#heading").offset({ left: leftOffset});
             leftOffset++;
-            if (leftOffset > 200) {
+            if (leftOffset > 500) {
                 leftOffset = 0;
             }
         };
