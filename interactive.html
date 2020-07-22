@@ -13,6 +13,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         let leftOffset = 0;
+        let i = 5;
+        let intervalId;
+
         function moveHeading() {
             $("#heading").offset({ left: leftOffset});
             leftOffset++;
@@ -20,21 +23,27 @@
                 leftOffset = 0;
             }
         }
-        let i = 5;
+        
         function incrieseMove (a) {
-            let intervalId = setInterval(moveHeading, a); 
-            if(i > 0) {
+            //clearInterval(intervalId);
+            intervalId = setInterval(moveHeading, a); 
+            if (i > 0) {
                 $("#heading").text("у вас осталось" + i + "попыток");
                 //let intervalId = setInterval(moveHeading, a); //увеличивает скорость движения заголовка
                 i--;
                 console.log(i);
-            } else (i == 0) {
+            } else if (i == 0) {
+                clearInterval(intervalId);
                 $("#heading").text("Вы выиграли");
-                $("#heading").click(clearInterval(intervalId));
-                return;
+                //$("#heading").click(clearInterval(intervalId));
+                
             }
+            
         };
-        $("#heading").click(incrieseMove);
+        $("#heading").click(function () {
+            incrieseMove(20);
+        });
+        
 
 
 
