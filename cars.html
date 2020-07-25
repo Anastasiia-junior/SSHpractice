@@ -13,6 +13,60 @@
             this.x = x;
             this.y = y;
         };
+        //второй метод создания конструктора объектов и добавления метода
+        Car.prototype.draw = function () {
+            var carHtml = '<img src="http://nostarch.com/images/car.png">';
+            this.carElement = $(carHtml);
+            this.carElement.css({
+                position: "absolute",
+                left: this.x,
+                top: this.y
+            });
+            $("body").append(this.carElement);
+        };
+        //Car.prototype.speed = function () {
+        //    return 5;
+        //};
+        Car.prototype.moveRight = function (speed) {
+            this.x += speed;
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+        Car.prototype.moveLeft = function () {
+            this.x -= 5;
+            this.carElement.css ({
+                left: this.x,
+                top: this.y
+            });
+        };
+        Car.prototype.moveUp = function () {
+            this.y -= 5;
+            this.carElement.css ({
+                left: this.x,
+                top: this.y
+            });
+        };
+        Car.prototype.moveDown = function () {
+            this.y += 5;
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+        let tesla = new Car (20, 20);
+        let nissan = new Car (100, 200);
+        tesla.draw();
+        nissan.draw();
+        let intervalIdNissan = setInterval(function (speed = Math.floor(Math.random() * 10)) {
+            nissan.moveRight(speed);
+        }, 310);
+        let intervalIdTesla = setInterval(function (speed = Math.floor(Math.random() * 10)) {
+            tesla.moveRight(speed);
+        }, 310);
+
+        /* первый способ конструктора объектов 
         function drawCar (car) {
             var carHtml = '<img src="http://nostarch.com/images/car.png">'; 
             var carElement = $(carHtml);
@@ -27,6 +81,8 @@
         var nissan = new Car (100,200);
         drawCar(tesla);
         drawCar(nissan);
+        */
+        
 
     </script>
 </body>
